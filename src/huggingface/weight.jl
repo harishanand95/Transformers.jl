@@ -43,7 +43,7 @@ function _ht2nt(x::TableBlock)
   else
     tks = Tuple(keys(x.entry))
     if all(Base.Fix1(all, isdigit), tks)
-      inds = Vector(undef, length(tks))
+      inds = Vector(undef, maximum(parse.(Int, tks)) + 1)
       foreach(tks) do is
         i = parse(Int, is) + 1
         inds[i] = _ht2nt(x.entry[is])
