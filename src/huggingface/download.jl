@@ -39,7 +39,9 @@ end
 
 hgf_file(model_name, file_name; revision = "main", kws...) = _hgf_download(hgf_file_url(model_name, file_name; revision); kws...)
 
+hgf_model_config(model_name, config; kws...) = hgf_file(model_name, config; kws...)
 hgf_model_config(model_name; kws...) = hgf_file(model_name, CONFIG_NAME; kws...)
+hgf_model_weight(model_name, config; kws...) = hgf_file(model_name, config; kws...)
 hgf_model_weight(model_name; kws...) = hgf_file(model_name, PYTORCH_WEIGHTS_NAME; kws...)
 hgf_vocab(model_name; kws...) = hgf_file(model_name, VOCAB_FILE; kws...)
 hgf_vocab_json(model_name; kws...) = hgf_file(model_name, VOCAB_JSON_FILE; kws...)

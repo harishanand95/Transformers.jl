@@ -6,6 +6,7 @@ using HuggingFaceApi
 
 export @hgf_str,
     load_config,
+    load_config_dict,
     load_model,
     load_model!,
     load_tokenizer,

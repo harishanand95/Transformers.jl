@@ -4,8 +4,10 @@
 Get the configuration file of given model.
 """
 load_config(model; kw...) = _load_config(load_config_dict(model; kw...))
+load_config(model, config; kw...) = _load_config(load_config_dict(model, config; kw...))
 
 load_config_dict(model_name; kw...) = json_load(hgf_model_config(model_name; kw...))
+load_config_dict(model_name, config; kw...) = json_load(hgf_model_config(model_name, config; kw...))
 
 _load_config(cfg_file::AbstractString) = _load_config(json_load(cfg_file))
 function _load_config(cfg)
