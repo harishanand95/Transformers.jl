@@ -12,6 +12,12 @@ function load_state(model_name; kw...)
   return state
 end
 
+function load_state(model_name, config; kw...)
+  state_dict = load_state_dict(model_name, config; kw...)
+  state = state_dict_to_namedtuple(state_dict)
+  return state
+end
+
 """
   `load_state_dict(model_name)`
 
@@ -21,6 +27,11 @@ See also: [`state_dict_to_namedtuple`](@ref)
 """
 function load_state_dict(model_name; kw...)
   state_dict = Pickle.Torch.THload(hgf_model_weight(model_name; kw...))
+  return state_dict
+end
+
+function load_state_dict(model_name, config; kw...)
+  state_dict = Pickle.Torch.THload(hgf_model_weight(model_name, config; kw...))
   return state_dict
 end
 
